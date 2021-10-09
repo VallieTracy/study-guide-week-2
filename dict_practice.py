@@ -73,21 +73,39 @@ ENG_PIRATE_LOOKUP = {
 }
 
 
-def translate_to_pirate_talk(phrase):
-    words_list = phrase.split(' ')
-    new_phrase = ''
-    for word in words_list[:-1]:
-        if word in ENG_PIRATE_LOOKUP:
-            word = "needs to change "
-            new_phrase += word
-        else:
-            new_phrase += word
-    for word in words_list[-1]:
-        if word in ENG_PIRATE_LOOKUP:
-            word = "needs to change "
-            new_phrase += 'word'
-        else:
-            new_phrase += word 
-    return new_phrase
+# def translate_to_pirate_talk(phrase):
+#     words_list = phrase.split(' ')
+#     new_phrase_list = []
+#     for word in words_list:
+#         if word in ENG_PIRATE_LOOKUP:
+#             print(f"WORD - {word}")
+#             print(f"ENG_P_L[word] = {ENG_PIRATE_LOOKUP[word]}")
+#             new_phrase_list.append(ENG_PIRATE_LOOKUP[word])
+#             print(f"NEW PHRASE = {new_phrase_list}")
+#         else:
+#             new_phrase_list.append(word)
+#             print(f"THE ELSE STATEMENT word - {word}")
+#     new_phrase = ''
+#     for i in range(len(new_phrase_list) - 1):
+#         new_phrase += new_phrase_list[i] + ' '
+#     new_phrase += new_phrase_list[-1]
+    
+    
+#     return new_phrase
 
-print(translate_to_pirate_talk('sir testing swabbies'))
+def create_word_chain(words):
+    letters_words_dict = {}
+    for word in words:
+        letters_words_dict[word] = []
+    for key, value in letters_words_dict.items():
+        for word in words:
+            if word.startswith(key[-1]):
+                letters_words_dict[key].append(word)
+    print(letters_words_dict)
+
+
+print(create_word_chain(['animal', 'cracker', 'liger', 'ratchet', 'racket', 'tennis']))
+
+            
+    
+
