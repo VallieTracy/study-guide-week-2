@@ -142,8 +142,19 @@ def top_chars(phrase):
     Do not count spaces, but count all other characters.
 
     """
-
-    return []
+    init_dict = {}
+    for item in phrase:
+        if item != ' ':
+            if item in init_dict:
+                init_dict[item] += 1
+            else:
+                init_dict[item] = 1
+    highest_value = max(init_dict.values())
+    answers_list = []
+    for key, value in init_dict.items():
+        if value == highest_value:
+            answers_list.append(key)
+    return sorted(answers_list)
 
 #####################################################################
 # You can ignore everything below this.
