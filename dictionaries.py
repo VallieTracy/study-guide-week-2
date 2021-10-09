@@ -107,8 +107,15 @@ def get_sum_zero_pairs(numbers):
         >>> sort_pairs( get_sum_zero_pairs([1, 3, -1, 1, 1, 0]) )
         [[-1, 1], [0, 0]]
     """
+    zeros_dict = {}
+    for number in numbers:
+        if -number in numbers:
+            zeros_dict[abs(number)] = [number, -number]
+    values_list = []
+    for key, value in zeros_dict.items():
+        values_list.append(value)
 
-    return []
+    return values_list
 
 
 def top_chars(phrase):

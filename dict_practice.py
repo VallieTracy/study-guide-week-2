@@ -20,3 +20,14 @@ def without_duplicates(words):
 
 # print(find_unique_common_items(['apple', 'sad', 'happy'], ['sad', 'window']))
 
+my_nums = [1, 2, -1, 3, 1, -1, -2, -2, 0]
+zeros_dict = {}
+for number in my_nums:
+    if -number in my_nums:
+        zeros_dict[abs(number)] = [number, -number]
+values_list = []
+for key, value in zeros_dict.items():
+    values_list.append(value)
+print(values_list)
+
+
