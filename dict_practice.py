@@ -30,23 +30,64 @@ def without_duplicates(words):
 #     values_list.append(value)
 # print(values_list)
 
-def top_chars(phrase):
-    init_dict = {}
-    for item in phrase:
-        if item != ' ':
-            if item in init_dict:
-                init_dict[item] += 1
-            else:
-                init_dict[item] = 1
-    highest_value = max(init_dict.values())
-    answers_list = []
-    for key, value in init_dict.items():
-        if value == highest_value:
-            answers_list.append(key)
-    return sorted(answers_list)
+# def top_chars(phrase):
+#     init_dict = {}
+#     for item in phrase:
+#         if item != ' ':
+#             if item in init_dict:
+#                 init_dict[item] += 1
+#             else:
+#                 init_dict[item] = 1
+#     highest_value = max(init_dict.values())
+#     answers_list = []
+#     for key, value in init_dict.items():
+#         if value == highest_value:
+#             answers_list.append(key)
+#     return sorted(answers_list)
 
 
         
-print(top_chars('za stzring! ssz'))
+# print(top_chars('za stzring! ssz'))
+
+# phrase = "hello there"
+# phrase_list = []
+# words = phrase.split(' ')
+# print(words)
+# print(type(words))
 
 
+ENG_PIRATE_LOOKUP = {
+    "sir": "matey",
+    "hotel": "fleabag inn",
+    "student": "swabbie",
+    "man": "matey",
+    "professor": "foul blaggart",
+    "restaurant": "galley",
+    "your": "yer",
+    "excuse": "arr",
+    "students": "swabbies",
+    "are": "be",
+    "restroom": "head",
+    "my": "me",
+    "is": "be",
+}
+
+
+def translate_to_pirate_talk(phrase):
+    words_list = phrase.split(' ')
+    new_phrase = ''
+    for word in words_list[:-1]:
+        if word in ENG_PIRATE_LOOKUP:
+            word = "needs to change "
+            new_phrase += word
+        else:
+            new_phrase += word
+    for word in words_list[-1]:
+        if word in ENG_PIRATE_LOOKUP:
+            word = "needs to change "
+            new_phrase += 'word'
+        else:
+            new_phrase += word 
+    return new_phrase
+
+print(translate_to_pirate_talk('sir testing swabbies'))
